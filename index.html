@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hexa Sort 3D</title>
+  <style>
+    body { 
+  touch-action: none;
+  -webkit-overflow-scrolling: touch; background-size: cover; font-family: Arial, sans-serif; margin: 0; overflow: hidden; background: url('wood.jpg') no-repeat center center fixed; }
+    canvas { display: block; width: 100vw;
+      height: 100vh;}
+    #branding {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 10px;
+  border-radius: 12px;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 14px;
+  z-index: 9999;
+}
+
+#branding img {
+  height: 24px;
+  object-fit: contain;
+}
+
+#scoreDisplay {
+  position: fixed;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+  font-family: 'Arial', sans-serif;
+  z-index: 1000;
+  pointer-events: none;
+}
+#playNowBtn, #victoryScreen {
+  position: absolute;
+  z-index: 10;
+}
+#handHint {
+  top: 50%;
+  position: absolute;
+}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    @keyframes handMove {
+      0%, 100% {
+        transform: translateX(-50%) translateX(-20px);
+      }
+      50% {
+        transform: translateX(-50%) translateX(20px);
+      }
+    }
+    </style>
+    
+</head>
+<body>
+  <script type="module" src="main.js"></script>
+  <button id="playNowBtn" style="display:none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); padding: 12px 24px; font-size: 18px; cursor: pointer;">
+    Brain Game
+  </button>
+  <div id="scoreDisplay">Score: 0</div>
+  <audio id="matchSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8917c6d3d.mp3?filename=ui-game-notification-4-189270.mp3" preload="auto"></audio>
+  <div id="victoryScreen" style="
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+">
+  <div style="margin-bottom: 20px;">🎉 Great Job! 🎉</div>
+  <div><p>You've completed a column! Keep going to reduce your brain age.</p></div>
+  <button id="victoryBtn" style="padding: 10px 20px; font-size: 1.2rem;">Play Again</button>
+  <div id="branding">
+    <span>Powered by</span>
+    <img src="sundaygames.jpeg" alt="Company Logo" />
+  </div>
+  </div>
+
+
+
+
+<img id="handHint" src="hand.png" style="
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  width: 80px;
+  transform: translateX(-50%);
+  animation: handMove 2s ease-in-out infinite;
+  z-index: 999;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+" />
+
+</body>
+</html>
